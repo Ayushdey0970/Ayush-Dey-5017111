@@ -90,7 +90,7 @@ class InventoryManagementSystem {
     }
 }
 
-public class Main {
+public class q1_Main {
     private static Scanner scanner = new Scanner(System.in);
     private static InventoryManagementSystem ims = new InventoryManagementSystem();
 
