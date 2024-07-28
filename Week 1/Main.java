@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 class Product {
     private String productId;
@@ -71,7 +72,11 @@ class InventoryManagementSystem {
     }
 
     public void deleteProduct(String productId) {
-        inventory.remove(productId);
+        if (inventory.remove(productId) != null) {
+            System.out.println("Product deleted successfully");
+        } else {
+            System.out.println("Product not found");
+        }
     }
 
     public Product getProduct(String productId) {
@@ -86,25 +91,97 @@ class InventoryManagementSystem {
 }
 
 public class Main {
+    private static Scanner scanner = new Scanner(System.in);
+    private static InventoryManagementSystem ims = new InventoryManagementSystem();
+
     public static void main(String[] args) {
-        InventoryManagementSystem ims = new InventoryManagementSystem();
+        while (true) {
+            System.out.println("\nInventory Management System");
+            System.out.println("1. View a product");
+            System.out.println("2. Add a product");
+            System.out.println("3. Update a product");
+            System.out.println("4. Delete a product");
+            System.out.println("5. Display all products");
+            System.out.println("6. Exit");
+            System.out.print("Enter your choice: ");
 
-        // Adding products
-        ims.addProduct(new Product("P001", "Laptop", 10, 999.99));
-        ims.addProduct(new Product("P002", "Smartphone", 20, 499.99));
+            int choice = scanner.nextInt();
+            scanner.nextLine();
 
-        // Displaying inventory
-        System.out.println("Initial Inventory:");
-        ims.displayInventory();
+            switch (choice) {
+                case 1:
+                    viewProduct();
+                    break;
+                case 2:
+                    addProduct();
+                    break;
+                case 3:
+                    updateProduct();
+                    break;
+                case 4:
+                    deleteProduct();
+                    break;
+                case 5:
+                    displayAllProducts();
+                    break;
+                case 6:
+                    System.out.println("Exiting...");
+                    return;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }
+    }
 
-        // Updating a product
-        ims.updateProduct("P001", 15, 899.99);
+    private static void viewProduct() {
+        System.out.print("Enter product ID: ");
+        String productId = scanner.nextLine();
+        Product product = ims.getProduct(productId);
+        if (product != null) {
+            System.out.println(product);
+        } else {
+            System.out.println("Product not found");
+        }
+    }
 
-        // Deleting a product
-        ims.deleteProduct("P002");
+    private static void addProduct() {
+        System.out.print("Enter product ID: ");
+        String productId = scanner.nextLine();
+        System.out.print("Enter product name: ");
+        String productName = scanner.nextLine();
+        System.out.print("Enter quantity: ");
+        int quantity = scanner.nextInt();
+        System.out.print("Enter price: ");
+        double price = scanner.nextDouble();
 
-        // Displaying updated inventory
-        System.out.println("\nUpdated Inventory:");
+        Product newProduct = new Product(productId, productName, quantity, price);
+        ims.addProduct(newProduct);
+        System.out.println("Product added successfully");
+    }
+
+    private static void updateProduct() {
+        System.out.print("Enter product ID: ");
+        String productId = scanner.nextLine();
+        System.out.print("Enter new quantity (-1 to not change it): ");
+        int newQuantity = scanner.nextInt();
+        if (newQuantity == -1) {
+            newQuantity = ims.getProduct(productId).getQuantity();
+        }
+        System.out.print("Enter new price: (-1 to not change it): ");
+        double newPrice = scanner.nextDouble();
+        if (newPrice == -1) {
+            newPrice = ims.getProduct(productId).getPrice();
+        }
+        ims.updateProduct(productId, newQuantity, newPrice);
+    }
+
+    private static void deleteProduct() {
+        System.out.print("Enter product ID: ");
+        String productId = scanner.nextLine();
+        ims.deleteProduct(productId);
+    }
+
+    private static void displayAllProducts() {
         ims.displayInventory();
     }
 }
