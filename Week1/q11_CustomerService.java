@@ -1,7 +1,6 @@
 public class q11_CustomerService {
     private final q11_CustomerRepository repository;
 
-    // Constructor injection
     public q11_CustomerService(q11_CustomerRepository repository) {
         this.repository = repository;
     }
