@@ -6,6 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="LibraryManagement (9) (com.example)" />
+        <module name="LibraryManagement (8)" />
+        <module name="LibraryManagement (6)" />
+        <module name="LibraryManagement (7)" />
+        <module name="LibraryManagement (4)" />
+        <module name="LibraryManagement (5)" />
+        <module name="LibraryManagement (2)" />
+        <module name="LibraryManagement (3)" />
         <module name="LibraryManagement (1)" />
       </profile>
     </annotationProcessing>
