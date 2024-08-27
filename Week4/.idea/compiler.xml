@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="BookstoreAPI (4)" />
+        <module name="BookstoreAPI (5)" />
+        <module name="BookstoreAPI (6)" />
+        <module name="BookstoreAPI" />
+        <module name="BookstoreAPI (7)" />
+        <module name="BookstoreAPI (1)" />
+        <module name="BookstoreAPI (2)" />
+        <module name="BookstoreAPI (3)" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="BookstoreAPI" options="-parameters" />
+      <module name="BookstoreAPI (1)" options="-parameters" />
+      <module name="BookstoreAPI (2)" options="-parameters" />
+      <module name="BookstoreAPI (3)" options="-parameters" />
+      <module name="BookstoreAPI (4)" options="-parameters" />
+      <module name="BookstoreAPI (5)" options="-parameters" />
+      <module name="BookstoreAPI (6)" options="-parameters" />
+      <module name="BookstoreAPI (7)" options="-parameters" />
+    </option>
+  </component>
+</project>
